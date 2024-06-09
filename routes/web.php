@@ -13,3 +13,7 @@ Route::post('/ajouter/categorie-traitement', [CategorieController::class, 'Ajout
 
    /*Affichage de categorie */
 Route::get('/categories', [CategorieController::class, 'ListeCategorie']);
+
+  /*Modification de catégorie*/
+Route::post('/modifier/categorie-traitement/', [CategorieController::class, 'ModifierCategorieTraitement']);
+Route::get('/modifier-categorie/{id}', [CategorieController::class, 'ModifierCategorie']);

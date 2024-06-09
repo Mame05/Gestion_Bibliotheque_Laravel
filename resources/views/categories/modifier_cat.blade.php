@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3>AJOUTER UNE CATÉGORIE</h3>
+                        <h3>MODIFIER UNE CATÉGORIE</h3>
                     </div>
                     <div class="card-body">
                         @if (session('status'))
@@ -25,11 +25,12 @@
                             <li class="alert alert-danger">{{$error}}   </li>
                             @endforeach
                         </ul>
-                        <form action="/ajouter/categorie-traitement" method="POST">
+                        <form action="/modifier/categorie-traitement/" method="POST">
                             @csrf
+                            <input type="text" name="id" style="display: none" value="{{ old('id', $categories->id) }}" >
                             <div class="form-group">
                                 <label for="libelle" class="form-label">Nom de la catégorie du livre:</label>
-                                <select id="libelle" class="form-control" name="libelle">
+                                <select id="libelle" class="form-control" name="libelle" value="{{old('libelle', $categories->libelle)}}">
                                     <option value="Anglais" {{ old('libelle') == 'Anglais' ? 'selected' : '' }} >Anglais</option>
                                     <option value="Français" {{ old('libelle') == 'Français' ? 'selected' : '' }}>Français</option>
                                     <option value="Histo_Geo" {{ old('libelle') == 'Histo_Geo' ? 'selected' : '' }}>Histo_Geo</option>
@@ -42,9 +43,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="description">Description</label>
-                                <textarea class="form-control" id="description" name="description"></textarea>
+                                <textarea class="form-control" id="description" name="description">{{ old('description', $categories->description) }}</textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Modifier</button>
                             <br>
                             <br>
                             <a href="/categories" class="btn btn-outline-primary btn-sm">Retour</a>

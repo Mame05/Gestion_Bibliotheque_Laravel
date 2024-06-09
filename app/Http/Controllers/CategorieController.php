@@ -32,4 +32,24 @@ class CategorieController extends Controller
         $categories = Categorie::all ();
           return view('categories/liste_cat', compact('categories'));
     }
+
+    public function ModifierCategorie($id){
+    $categories = Categorie::findOrFail($id);
+    return view('categories/modifier_cat', compact('categories'));
+
+    }
+
+public function ModifierCategorieTraitement(Request $request){
+    $request->validate([
+        'libelle' => 'required',
+        'description' => 'required',
+    ]);
+
+    $categorie = Categorie::findOrFail($request->id);
+    $categorie->libelle = $request->libelle;
+    $categorie->description = $request->description;
+    $categorie->update();
+
+    return redirect('/categories')->with('status', "La categorie a été modifié avec succés.");
+    }
 }
