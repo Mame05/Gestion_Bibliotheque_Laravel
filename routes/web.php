@@ -5,9 +5,10 @@ use App\Http\Controllers\LivreController;
 use App\Http\Controllers\RayonController;
 use App\Http\Controllers\CategorieController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [LivreController::class,'index']);
+
+        /*voir detail*/
+Route::get('/detail-livre/{id}', [LivreController::class, 'DetailLivre']);
 
     /* Ajouter une catégorie */
 Route::get('/categories/ajouter', [CategorieController::class, 'AjouterCategorie']);

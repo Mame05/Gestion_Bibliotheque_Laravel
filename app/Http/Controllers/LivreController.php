@@ -96,4 +96,10 @@ class LivreController extends Controller
 
         return redirect('/livres')->with('status', "Le livre a été supprimé avec succés.");
     }
+
+    public function index(){
+    $livres = Livre::with('categorie')->get();
+    return view('livres/index', compact('livres'));
+    }
+
 }
