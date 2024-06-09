@@ -52,4 +52,11 @@ class RayonController extends Controller
     
         return redirect('/rayons')->with('status', "Le rayon a été modifié avec succés.");
         }
+
+        public function SupprimerRayon($id){
+            $rayon = Rayon::findOrFail($id);
+            $rayon->delete();
+    
+            return redirect('/rayons')->with('status', "Le rayon a été supprimé avec succés.");
+        }
 }
