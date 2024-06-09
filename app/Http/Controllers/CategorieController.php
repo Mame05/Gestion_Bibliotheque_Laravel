@@ -52,4 +52,11 @@ public function ModifierCategorieTraitement(Request $request){
 
     return redirect('/categories')->with('status', "La categorie a été modifié avec succés.");
     }
+
+    public function SupprimerCategorie($id){
+        $categorie = Categorie::findOrFail($id);
+        $categorie->delete();
+
+        return redirect('/categories')->with('status', "La catégorie a été supprimé avec succés.");
+    }
 }

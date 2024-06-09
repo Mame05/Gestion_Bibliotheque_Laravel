@@ -17,3 +17,6 @@ Route::get('/categories', [CategorieController::class, 'ListeCategorie']);
   /*Modification de catégorie*/
 Route::post('/modifier/categorie-traitement/', [CategorieController::class, 'ModifierCategorieTraitement']);
 Route::get('/modifier-categorie/{id}', [CategorieController::class, 'ModifierCategorie']);
+
+    /*Suppression d'un categorie */
+Route::get('/supprimer-categorie/{id}', [CategorieController::class, 'SupprimerCategorie']);
