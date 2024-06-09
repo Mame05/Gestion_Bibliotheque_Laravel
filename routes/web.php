@@ -40,3 +40,6 @@ Route::get('/supprimer-rayon/{id}', [RayonController::class, 'SupprimerRayon']);
 /* Ajouter un livre */
 Route::get('/livres/ajouter', [LivreController::class, 'AjouterLivre']);
 Route::post('/ajouter/livre-traitement', [LivreController::class, 'AjouterLivreTraitement']);
+
+/*Affichage des livres */
+Route::get('/livres', [LivreController::class, 'ListeLivre']);

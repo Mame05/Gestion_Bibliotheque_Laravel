@@ -108,7 +108,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-
                         <a href="/categories/ajouter" class="btn btn-primary">Ajouter une categorie</a>
                     </div>
                 </div>

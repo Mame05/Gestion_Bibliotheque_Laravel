@@ -43,5 +43,10 @@ class LivreController extends Controller
         $livre->rayon_id = $request->rayon_id;
         $livre->save();
         return redirect('/livres')->with('status', "Le livre a été ajouté avec succés.");
-}
+    }
+
+    public function ListeLivre(){
+        $livres = Livre::all ();
+          return view('livres/liste_liv', compact('livres'));
+    }
 }
