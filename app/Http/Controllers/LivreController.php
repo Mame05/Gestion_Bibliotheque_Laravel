@@ -61,7 +61,7 @@ class LivreController extends Controller
 
     public function ModifierLivreTraitement(Request $request)
     {
-        dd($request->all());
+        /*dd($request->all());*/
         $request->validate([
             'titre' => 'required',
             'date_publication' => 'required',
@@ -88,5 +88,12 @@ class LivreController extends Controller
         $livre->rayon_id = $request->rayon_id;
         $livre->update();
         return redirect('/livres')->with('status', "Le livre a été modifié avec succés.");
+    }
+
+    public function SupprimerLivre($id){
+        $livre = Livre::findOrFail($id);
+        $livre->delete();
+
+        return redirect('/livres')->with('status', "Le livre a été supprimé avec succés.");
     }
 }

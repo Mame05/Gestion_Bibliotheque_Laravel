@@ -66,7 +66,7 @@
                                 <label for="disponibilite">Est-il disponible?</label>
                                 <select id="disponibilite" name="disponibilite" class="form-control" value="{{ old('disponibilite', $livres->disponibilite) }}">
                                     <option value="Oui">Oui</option>
-                                    <option value="Nom">Nom</option>
+                                    <option value="Non">Non</option>
                                 </select>
                             </div>
                             <div class="form-group">

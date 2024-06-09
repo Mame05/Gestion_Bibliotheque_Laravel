@@ -132,11 +132,11 @@
                                         <td>{{ $livre->disponibilite }}</td>
                                         <td>
                                             <a href="/modifier-livre/{{ $livre->id }}" class="btn btn-sm btn-primary">Modifier</a>
-                                            <form action="/supprimer-livre/{{ $livre->id }}" method="POST" style="display:inline;">
-                                                @csrf
+                                            <!--<form action="/supprimer-livre/{{ $livre->id }}" method="POST" style="display:inline;">
+                                                @*csrf-->
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes vous sûr de vouloir supprimer cet livre')">Supprimer</button>
-                                            </form>
+                                                <a href="/supprimer-livre/{{ $livre->id }}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes vous sûr de vouloir supprimer cet livre')">Supprimer</a>
+                                           <!-- </form>-->
                                         </td>
                                     </tr>
                                 @endforeach

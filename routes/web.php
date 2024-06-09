@@ -34,7 +34,7 @@ Route::get('/rayons', [RayonController::class, 'ListeRayon']);
 Route::post('/modifier/rayon-traitement/', [RayonController::class, 'ModifierRayonTraitement']);
 Route::get('/modifier-rayon/{id}', [RayonController::class, 'ModifierRayon']);
 
-/*Suppression d'une categorie */
+/*Suppression d'un rayon */
 Route::get('/supprimer-rayon/{id}', [RayonController::class, 'SupprimerRayon']);
 
 /* Ajouter un livre */
@@ -47,4 +47,7 @@ Route::get('/livres', [LivreController::class, 'ListeLivre']);
 /*Modifier un livre*/
 Route::post('/modifier/livre-traitement/', [LivreController::class, 'ModifierLivreTraitement']);
 Route::get('/modifier-livre/{id}', [LivreController::class, 'ModifierLivre']);
+
+/*Suppression d'un livre */
+Route::get('/supprimer-livre/{id}', [LivreController::class, 'SupprimerLivre']);
 
