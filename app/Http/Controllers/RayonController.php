@@ -32,4 +32,24 @@ class RayonController extends Controller
         $rayons = Rayon::all ();
         return view('rayons/liste_ray', compact('rayons'));
     }
+
+    public function ModifierRayon($id){
+        $rayons = Rayon::findOrFail($id);
+        return view('rayons/modifier_ray', compact('rayons'));
+    
+        }
+    
+        public function ModifierRayonTraitement(Request $request){
+        $request->validate([
+            'section' => 'required',
+            'partie' => 'required',
+        ]);
+    
+        $rayon = Rayon::findOrFail($request->id);
+        $rayon->section = $request->section;
+        $rayon->partie = $request->partie;
+        $rayon->update();
+    
+        return redirect('/rayons')->with('status', "Le rayon a été modifié avec succés.");
+        }
 }

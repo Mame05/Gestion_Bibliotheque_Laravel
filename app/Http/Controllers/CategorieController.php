@@ -39,7 +39,7 @@ class CategorieController extends Controller
 
     }
 
-public function ModifierCategorieTraitement(Request $request){
+    public function ModifierCategorieTraitement(Request $request){
     $request->validate([
         'libelle' => 'required',
         'description' => 'required',

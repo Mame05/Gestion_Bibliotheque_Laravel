@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3>AJOUTER UN RAYON</h3>
+                        <h3>MODIFIER UN RAYON</h3>
                     </div>
                     <div class="card-body">
                         @if (session('status'))
@@ -25,12 +25,13 @@
                             <li class="alert alert-danger">{{$error}}   </li>
                             @endforeach
                         </ul>
-                        <form action="/ajouter/rayon-traitement" method="POST">
+                        <form action="/modifier/rayon-traitement/" method="POST">
                             @csrf
+                            <input type="text" name="id" style="display: none" value="{{ old('id', $rayons->id) }}" >
                             <div class="form-group">
-                                <label for="section" class="form-label">Section du rayon:</label>
-                                <select id="section" class="form-control" name="section" required>
-                                    <option value="A" {{ old('section') == 'A' ? 'selected' : '' }}>Section A</option>
+                                <label for="section" class="form-label">Section du rayon</label>
+                                <select id="section" class="form-control" name="section" value="{{old('section', $rayons->section)}}" required>
+                                    <option value="A" {{ old('section') == 'A' ? 'selected' : '' }} >Section A</option>
                                     <option value="B" {{ old('section') == 'B' ? 'selected' : '' }}>Section B</option>
                                     <option value="C" {{ old('section') == 'C' ? 'selected' : '' }}>Section C</option>
                                     <option value="D" {{ old('section') == 'D' ? 'selected' : '' }}>Section D</option>
@@ -38,13 +39,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="partie" class="form-label">Partie du rayon:</label>
-                                <select id="partie" class="form-control" name="partie" required>
+                                <select id="partie" class="form-control" name="partie" value="{{old('partie', $rayons->section)}}" required>
                                     <option value="premier_moitie" {{ old('partie') == 'premier_moitie' ? 'selected' : '' }}>Première moitié</option>
                                     <option value="seconde_moitie" {{ old('partie') == 'seconde_moitie' ? 'selected' : '' }}>Seconde moitié</option>
                                 </select>
                             </div>
                             <br>
-                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                            <button type="submit" class="btn btn-primary">Modifier</button>
                             <br>
                             <br>
                             <a href="/rayons" class="btn btn-outline-primary btn-sm">Retour</a>
