@@ -20,11 +20,16 @@ class CategorieController extends Controller
             
         ]);
 
-        $categorie =new Categorie();
+        $categorie = new Categorie();
         $categorie->libelle = $request->libelle;
         $categorie->description = $request->description;
         $categorie->save();
 
-        /*return redirect('/categorie')->with('status', "La categorie a été ajouté avec succés.");*/
+        return redirect('/categories')->with('status', "La categorie a été ajouté avec succés.");
+    }
+
+    public function ListeCategorie(){
+        $categories = Categorie::all ();
+          return view('categories/liste_cat', compact('categories'));
     }
 }

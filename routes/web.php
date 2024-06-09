@@ -8,6 +8,8 @@ Route::get('/', function () {
 });
 
     /* Routes pour ajouter une catégorie */
-Route::get('/categorie/ajouter', [CategorieController::class, 'AjouterCategorie']);
+Route::get('/categories/ajouter', [CategorieController::class, 'AjouterCategorie']);
 Route::post('/ajouter/categorie-traitement', [CategorieController::class, 'AjouterCategorieTraitement']);
-      
+
+   /*Affichage de categorie */
+Route::get('/categories', [CategorieController::class, 'ListeCategorie']);
