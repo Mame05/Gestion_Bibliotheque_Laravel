@@ -39,6 +39,7 @@ class LivreController extends Controller
         $livre->isbn = $request->isbn;
         $livre->editeur = $request->editeur;
         $livre->image = $request->input('image');
+        $livre->disponibilite = $request->disponibilite;
         $livre->categorie_id = $request->categorie_id;
         $livre->rayon_id = $request->rayon_id;
         $livre->save();
@@ -48,5 +49,44 @@ class LivreController extends Controller
     public function ListeLivre(){
         $livres = Livre::all ();
           return view('livres/liste_liv', compact('livres'));
+    }
+
+    public function ModifierLivre($id)
+    {
+        $livres = Livre::findOrFail($id);
+        $categories = Categorie::all();
+        $rayons = Rayon::all();
+        return view('livres/modifier_liv', compact('livres','categories', 'rayons'));
+    }
+
+    public function ModifierLivreTraitement(Request $request)
+    {
+        dd($request->all());
+        $request->validate([
+            'titre' => 'required',
+            'date_publication' => 'required',
+            'nombre_page' => 'required',
+            'auteur' => 'required',
+            'isbn' => 'required',
+            'editeur' => 'required',
+            'image' => 'required',
+            'disponibilite' => 'required',
+            'categorie_id' => 'required|exists:categories,id',
+            'rayon_id' => 'required|exists:rayons,id',
+        ]);
+
+        $livre = Livre::findOrFail($request->id);
+        $livre->titre = $request->titre;
+        $livre->date_publication = $request->date_publication;
+        $livre->nombre_page = $request->nombre_page;
+        $livre->auteur = $request->auteur;
+        $livre->isbn = $request->isbn;
+        $livre->editeur = $request->editeur;
+        $livre->image = $request->input('image');
+        $livre->disponibilite = $request->disponibilite;
+        $livre->categorie_id = $request->categorie_id;
+        $livre->rayon_id = $request->rayon_id;
+        $livre->update();
+        return redirect('/livres')->with('status', "Le livre a été modifié avec succés.");
     }
 }

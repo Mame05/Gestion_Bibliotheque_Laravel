@@ -43,3 +43,8 @@ Route::post('/ajouter/livre-traitement', [LivreController::class, 'AjouterLivreT
 
 /*Affichage des livres */
 Route::get('/livres', [LivreController::class, 'ListeLivre']);
+
+/*Modifier un livre*/
+Route::post('/modifier/livre-traitement/', [LivreController::class, 'ModifierLivreTraitement']);
+Route::get('/modifier-livre/{id}', [LivreController::class, 'ModifierLivre']);
+
