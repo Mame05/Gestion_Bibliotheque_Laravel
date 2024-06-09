@@ -12,7 +12,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
-                        <h3>AJOUTER UNE CATÉGORIE</h3>
+                        <h3>AJOUTER UN RAYON</h3>
                     </div>
                     <div class="card-body">
                         @if (session('status'))
@@ -25,30 +25,29 @@
                             <li class="alert alert-danger">{{$error}}   </li>
                             @endforeach
                         </ul>
-                        <form action="/ajouter/categorie-traitement" method="POST">
+                        <form action="/ajouter/rayon-traitement" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="libelle" class="form-label">Nom de la catégorie du livre:</label>
-                                <select id="libelle" class="form-control" name="libelle">
-                                    <option value="Anglais" {{ old('libelle') == 'Anglais' ? 'selected' : '' }} >Anglais</option>
-                                    <option value="Français" {{ old('libelle') == 'Français' ? 'selected' : '' }}>Français</option>
-                                    <option value="Histo_Geo" {{ old('libelle') == 'Histo_Geo' ? 'selected' : '' }}>Histo_Geo</option>
-                                    <option value="Mathematique" {{ old('libelle') == 'Mathematique' ? 'selected' : '' }}>Mathematique</option>
-                                    <option value="Roman" {{ old('libelle') == 'Roman' ? 'selected' : '' }}>Roman</option>
-                                    <option value="Science_Naturelle" {{ old('libelle') == 'Science_Naturelle' ? 'selected' : '' }}>Science_Naturelle</option>
-                                    <option value="Science_Phisique" {{ old('libelle') == 'Science_Phisique' ? 'selected' : '' }}>Science_Phisique</option>
-                                    <option value="Theatre" {{ old('libelle') == 'Theatre' ? 'selected' : '' }}>Theatre</option>
+                                <label for="section" class="form-label">Section du rayon:</label>
+                                <select id="section" class="form-control" name="section">
+                                    <option value="A" {{ old('section') == 'A' ? 'selected' : '' }}>Section A</option>
+                                    <option value="B" {{ old('section') == 'B' ? 'selected' : '' }}>Section B</option>
+                                    <option value="C" {{ old('section') == 'C' ? 'selected' : '' }}>Section C</option>
+                                    <option value="D" {{ old('section') == 'D' ? 'selected' : '' }}>Section D</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="description">Description</label>
-                                <textarea class="form-control" id="description" name="description"></textarea>
+                                <label for="partie" class="form-label">Partie du rayon:</label>
+                                <select id="partie" class="form-control" name="partie">
+                                    <option value="premier_moitie" {{ old('partie') == 'premier_moitie' ? 'selected' : '' }}>Première moitié</option>
+                                    <option value="seconde_moitie" {{ old('partie') == 'seconde_moitie' ? 'selected' : '' }}>Seconde moitié</option>
+                                </select>
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                             <br>
                             <br>
-                            <a href="/categories" class="btn btn-outline-primary btn-sm">Retour</a>
+                            <a href="/rayons" class="btn btn-outline-primary btn-sm">Retour</a>
                         </form>
                     </div>
                 </div>

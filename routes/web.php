@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\CategorieController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RayonController;
+use App\Http\Controllers\CategorieController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-    /* Routes pour ajouter une catégorie */
+    /* Ajouter une catégorie */
 Route::get('/categories/ajouter', [CategorieController::class, 'AjouterCategorie']);
 Route::post('/ajouter/categorie-traitement', [CategorieController::class, 'AjouterCategorieTraitement']);
 
@@ -20,3 +21,7 @@ Route::get('/modifier-categorie/{id}', [CategorieController::class, 'ModifierCat
 
     /*Suppression d'un categorie */
 Route::get('/supprimer-categorie/{id}', [CategorieController::class, 'SupprimerCategorie']);
+
+ /* Ajouter un rayon */
+ Route::get('/rayons/ajouter', [RayonController::class, 'AjouterRayon']);
+ Route::post('/ajouter/rayon-traitement', [RayonController::class, 'AjouterRayonTraitement']);
