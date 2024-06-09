@@ -12,7 +12,7 @@ Route::get('/', function () {
 Route::get('/categories/ajouter', [CategorieController::class, 'AjouterCategorie']);
 Route::post('/ajouter/categorie-traitement', [CategorieController::class, 'AjouterCategorieTraitement']);
 
-   /*Affichage de categorie */
+   /*Affichage des categories */
 Route::get('/categories', [CategorieController::class, 'ListeCategorie']);
 
   /*Modification de catégorie*/
@@ -25,3 +25,6 @@ Route::get('/supprimer-categorie/{id}', [CategorieController::class, 'SupprimerC
  /* Ajouter un rayon */
  Route::get('/rayons/ajouter', [RayonController::class, 'AjouterRayon']);
  Route::post('/ajouter/rayon-traitement', [RayonController::class, 'AjouterRayonTraitement']);
+
+ /*Affichage des rayons */
+Route::get('/rayons', [RayonController::class, 'ListeRayon']);

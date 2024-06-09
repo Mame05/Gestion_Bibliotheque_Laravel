@@ -27,4 +27,9 @@ class RayonController extends Controller
 
         return redirect('/rayons')->with('status', "Le rayon a été ajouté avec succés.");
     }
+
+    public function ListeRayon(){
+        $rayons = Rayon::all ();
+        return view('rayons/liste_ray', compact('rayons'));
+    }
 }
