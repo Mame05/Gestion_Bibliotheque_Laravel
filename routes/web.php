@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LivreController;
 use App\Http\Controllers\RayonController;
 use App\Http\Controllers\CategorieController;
@@ -52,3 +53,7 @@ Route::get('/modifier-livre/{id}', [LivreController::class, 'ModifierLivre']);
 /*Suppression d'un livre */
 Route::get('/supprimer-livre/{id}', [LivreController::class, 'SupprimerLivre']);
 
+
+/*Connection*/
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('authentification-login', [AuthController::class, 'AuthentificationLogin'])->name('authentification-login');
