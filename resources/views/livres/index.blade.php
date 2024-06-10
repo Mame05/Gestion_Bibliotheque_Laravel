@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque - Accueil</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+    
+    @section('content')
     <style>
         .card-custom {
             background-color: #f8f9fa; /* Adjust this color as needed */
@@ -27,6 +29,31 @@
     </style>
 </head>
 <body>
+    
+    @extends('banierre')
+    @section('title', 'Accueil - Ma Bibliothèque')
+
+    @section('extra-css')
+    <style>
+    .banner {
+        background-image:linear-gradient(rgba(19,17,19,0.50), rgba(19,17,19,0.50)),url('{{ asset('images/banner_accueil.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        width:100%;
+        height:500px
+    }
+    </style>
+    @endsection
+
+    @section('banner')
+    <div class="banner-content">
+    <h1 style="text-align: center; padding-top:200px;">Bienvenue à Ma Bibliothèque</h1>
+    </div>
+    @endsection
+    <h2>Page d'accueil</h2>
+    <p>Bienvenue sur la page d'accueil de notre bibliothèque.</p>
+
     <div class="container mt-5">
         <div class="row">
             @foreach ($livres as $livre)
@@ -56,6 +83,7 @@
             @endforeach
         </div>
     </div>
+    @endsection
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

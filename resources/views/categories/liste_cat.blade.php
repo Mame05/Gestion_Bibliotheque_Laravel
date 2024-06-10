@@ -1,61 +1,3 @@
-<!--<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GESTION BIBLIOTHÈQUE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col s12">
-                <p class="d-inline-flex gap-3">
-                  <a href="/categories/ajouter" class="btn btn-primary">Ajouter une catégorie</a>
-                </p>
-                <hr>
-                @/*if (session('status'))
-                <div class="alert alert-success">
-                    {/*{session('status')}}
-                </div>
-                @/*endif
-                @/*php
-                    $ide = 1;
-                @/*endphp
-                <div class="row">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Libellé de la catégorie</th>
-                                <th>Description</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @/*foreach($categories as $categorie)
-                            <tr>
-                                <td>{/*{ $categorie->id }}</td>
-                                <td>{/*{ $categorie->libelle }}</td>
-                                <td>{/*{ $categorie->description }}</td>
-                            <td>
-                                <a href="/modifier-categorie/{*{ $categorie->id }}" class="btn btn-info">Modifier</a>
-                                <a href="/supprimer-categorie/{*{ $categorie->id }}" class="btn btn-danger">Supprimer</a>
-                            </td>
-                        </tr>
-                            @*php
-                            $ide += 1;
-                            @*endphp
-                        @*endforeach
-                        </tbody>
-                    </table> 
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
-</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,8 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categories</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    @section('content')
 </head>
 <body>
+    @extends('banierre')
+    @section('title', 'Accueil - Ma Bibliothèque')
+
+    @section('extra-css')
+    <style>
+    .banner {
+        background-image:linear-gradient(rgba(19,17,19,0.50), rgba(19,17,19,0.50)),url('{{ asset('images/banner_categorie.jpg') }}');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        width:100%;
+        height:600px
+    }
+    .btn-spacing {
+            margin-right: 10px; /* Espace entre les boutons */
+        }
+    </style>
+    @endsection
+
+    @section('banner')
+    <div class="banner-content">
+    <h1 style="text-align: center; padding-top:200px;">Les différentes catégories des livres</h1>
+    </div>
+    @endsection
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -85,8 +53,7 @@
                         <table class="table table-bordered">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>#</th>
-                                    <th>Libellé de la catégorie</th>
+                                    <th>Libellé</th>
                                     <th>Description</th>
                                     <th>Actions</th>
                                 </tr>
@@ -94,12 +61,18 @@
                             <tbody>
                                 @foreach ($categories as $categorie)
                                     <tr>
-                                        <td>{{ $categorie->id }}</td>
                                         <td>{{ $categorie->libelle }}</td>
                                         <td>{{ $categorie->description }}</td>
                                         <td>
-                                            <a href="/modifier-categorie/{{ $categorie->id }}" class="btn btn-info">Modifier</a>
-                                            <a href="/supprimer-categorie/{{$categorie->id }}" class="btn btn-danger">Supprimer</a>
+                                            <p class="d-inline-flex gap-3">
+                                                <a href="/modifier-categorie/{{ $categorie->id }}" class="btn btn-sm btn-warning" style="margin-right: 10px">
+                                                <i class="fas fa-edit"></i>
+                                                </a>
+                                                @method('DELETE')
+                                                <a href="/supprimer-livre/{{ $categorie->id }}" class="btn btn-sm btn-danger" style="margin-right: 10px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </p>
                                         </td>
                                     </tr>
                                     @php
@@ -114,7 +87,7 @@
             </div>
         </div>
     </div>
-
+    @endsection
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

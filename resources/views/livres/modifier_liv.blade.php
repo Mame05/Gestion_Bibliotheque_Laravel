@@ -97,7 +97,7 @@
                             <button type="submit" class="btn btn-primary">Modifier</button>
                             <br>
                             <br>
-                            <a href="/livres" class="btn btn-outline-primary btn-sm">Retour</a>
+                            <a href="/detail-livre/{{$livres->id}}" class="btn btn-outline-primary btn-sm">Retour</a>
                         </form>
                     </div>
                 </div>

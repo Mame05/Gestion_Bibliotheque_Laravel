@@ -31,18 +31,7 @@
             <div class="col-md-8">
             <div class="d-flex">
                 <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3>{{ $livre->title }}</h3>
-                        <div>
-                            <a href="/modifier-livre/{{ $livre->id }}" class="btn btn-warning">
-                                    <i class="fas fa-edit"></i>
-                            </a>
-                            @method('DELETE')
-                            <a href="/supprimer-livre/{{ $livre->id }}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
-                                        <i class="fas fa-trash-alt"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <!--//-->
                     <div class="card-body">
                         @if ($livre->image)
                             <img src="{{$livre->image}}" alt="" class="img-fluid mb-3">
@@ -66,6 +55,18 @@
                             @endif
                         </p>
                         <a href="/" class="btn btn-outline-secondary">Retour à la liste des livres</a>
+                    </div>
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h3>{{ $livre->title }}</h3>
+                        <div>
+                            <a href="/modifier-livre/{{ $livre->id }}" class="btn btn-warning">
+                                    <i class="fas fa-edit"></i>
+                            </a>
+                            @method('DELETE')
+                            <a href="/supprimer-livre/{{ $livre->id }}" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
+                                        <i class="fas fa-trash-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
