@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bibliothèque - Accueil</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         .card-custom {
             background-color: #f8f9fa; /* Adjust this color as needed */
+            border-radius: 20px; /* Bordures arrondies */
         }
         .book-cover {
             width: 100%;
@@ -31,7 +33,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">
                         @if ($livre->image)
-                            <img src="{{ $livre->image}}" alt="" class="card-img-top book-cover">
+                            <img src="{{ $livre->image}}" alt="" class="card-img-top book-cover" style="border-radius: 20px;">
                         @else
                             <img src="https://via.placeholder.com/150" alt="No Image" class="card-img-top book-cover">
                         @endif
@@ -39,14 +41,14 @@
                             <h5 class="card-title">{{ $livre->titre }}</h5>
                             <p class="card-text"><strong>Catégorie:</strong> {{ $livre->categorie->libelle }}</p>
                             <p>
-                                @if ($livre->disponibilite==Oui)
+                                @if ($livre->disponibilite=="Oui")
                                     <span class="badge badge-available">Disponible</span>
                                 @else
                                     <span class="badge badge-unavailable">Non disponible</span>
                                 @endif
                             </p>
-                            <a href="/detail-livre/{{$livre->id}}" class="btn btn-info">
-                                <i class="fas fa-eye"></i> Voir plus
+                            <a href="/detail-livre/{{$livre->id}}" class="btn btn-outline-info">
+                                <i class="fas fa-eye"></i>
                             </a>
                         </div>
                     </div>

@@ -102,4 +102,11 @@ class LivreController extends Controller
     return view('livres/index', compact('livres'));
     }
 
+    public function DetailLivre($id)
+{
+    $livre = Livre::with('categorie', 'rayon')->findOrFail($id);
+    return view('livres/detail', compact('livre'));
+}
+
+
 }
