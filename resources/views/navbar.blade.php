@@ -8,34 +8,16 @@
             <li><a style=" font-weight:400;font-size:24px;"  href="/categories">Catégories</a></li>
             <li><a style=" font-weight:400;font-size:24px;"  href="/rayons">Rayons</a></li>
         </ul>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="/login">Connexion</a>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="/index">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                        <a class="nav-link" href="/logout"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Déconnexion
-                        </a>
-                    </li>
-                @endguest
-            </ul>
-        </div>
+        <a href="/login" class="btn  btn-sm" style=" font-weight:400;font-size:16px;">Se Connecter</a>
+        <a href="#" onclick="document.getElementById('logout-form').submit()" class="btn  btn-sm" style=" font-weight:400;font-size:16px;">
+            <form action="/logout" action="post" id="logout-form">@csrf</form>
+             Se Déconnecter
+          </a>
     </div>
 </nav>
-
 <style>
     nav {
         background-color: #333;
@@ -76,6 +58,14 @@
     }
 
     .nav-links li a:hover {
-        background-color: #111;
+        background-color: #4b97e7;
+    }
+    .btn{
+        background-color:#ffffff;
+        color:#333;
+    }
+    .btn:hover{
+        background-color:#4b97e7;
+
     }
 </style>

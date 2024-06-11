@@ -53,7 +53,11 @@ Route::get('/modifier-livre/{id}', [LivreController::class, 'ModifierLivre']);
 /*Suppression d'un livre */
 Route::get('/supprimer-livre/{id}', [LivreController::class, 'SupprimerLivre']);
 
+ /*Inscription*/
+ Route::get('/register', [AuthController::class, 'register']);
+ Route::post('/authentification-register', [AuthController::class, 'AuthentificationRegister']);
+
 
 /*Connection*/
-Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('authentification-login', [AuthController::class, 'AuthentificationLogin'])->name('authentification-login');
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/authentification-login', [AuthController::class, 'AuthentificationLogin']);
