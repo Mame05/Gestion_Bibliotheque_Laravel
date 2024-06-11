@@ -54,10 +54,10 @@ Route::get('/modifier-livre/{id}', [LivreController::class, 'ModifierLivre']);
 Route::get('/supprimer-livre/{id}', [LivreController::class, 'SupprimerLivre']);
 
  /*Inscription*/
- Route::get('/register', [AuthController::class, 'register']);
- Route::post('/authentification-register', [AuthController::class, 'AuthentificationRegister']);
+ Route::get('/register', [AuthController::class, 'register'])->name('register');
+ Route::post('/register', [AuthController::class, 'AuthentificationRegister'])->name('register');
 
 
 /*Connection*/
-Route::get('/login', [AuthController::class, 'login']);
-Route::post('/authentification-login', [AuthController::class, 'AuthentificationLogin']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'AuthentificationLogin'])->name('login');

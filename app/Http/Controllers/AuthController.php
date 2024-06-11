@@ -22,7 +22,7 @@ class AuthController extends Controller
        $user->email = $request->email;
        $user->password = Hash::make($request->password);
        $user->save();
-       return back()->with('status', 'Votre inscription a été effectué avec succés');
+       return back()->with('success', 'Votre inscription a été effectué avec succés');
 
     }
     /*C'est pour la connection*/
@@ -32,15 +32,15 @@ class AuthController extends Controller
 
     /*C'est pour authentifier l'utilisateur c'est de vérifuer si il a entrer les bonnes informations*/
     public function AuthentificationLogin(Request $request){
-        $credetials = ["
-            'email' => $request->email
-            'password' => '$request->password
-        "];
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-        if (Auth::attempt($credetials)){
-            return redirect('/')->with('status', 'connection reussi');
+        if (auth()->attempt($request->only('email','password'))){
+            return redirect('/')->with('success', 'connection reussi');
         }
-        return redirect()->back()->withErrors('Les identifiants ne corrspondent pas');
+        return back()->with('error','Les identifiants ne corrspondent pas');
     }
 
     /*C'est pour la deconnection*/

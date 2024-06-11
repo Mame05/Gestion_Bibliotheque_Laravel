@@ -48,10 +48,6 @@ class LivreController extends Controller
 
     }
 
-    /*public function ListeLivre(){
-        $livres = Livre::all ();
-          return view('livres/liste_liv', compact('livres'));
-    }*/
     public function index(){
         $livres = Livre::with('categorie')->get();
         return view('livres/index', compact('livres'));

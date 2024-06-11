@@ -62,7 +62,7 @@
     <h1 style="text-align: center; padding-top:200px;">Bienvenue à Ma Bibliothèque</h1>
     </div>
     @endsection
-    @auth<a href="/livres/ajouter" class="btn btn-primary btn-circle" style="margin-top: 10px;margin-left:95%;">
+    @auth<a href="/livres/ajouter" class="btn btn-primary btn-circle" style="margin-top: 10px;margin-left:90%;">
         <i class="fas fa-plus"></i>
     </a>@endauth
     <div class="container mt-5">
