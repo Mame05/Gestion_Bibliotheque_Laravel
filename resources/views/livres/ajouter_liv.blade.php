@@ -96,7 +96,9 @@
                             <button type="submit" class="btn btn-primary">Envoyer</button>
                             <br>
                             <br>
-                            <a href="/livres" class="btn btn-outline-primary btn-sm">Retour</a>
+                            <!--<a href="/livres" class="btn btn-outline-primary btn-sm">Retour</a>-->
+                            <a href="/" class="btn btn-outline-primary btn-sm">Retour</a>
+
                         </form>
                     </div>
                 </div>

@@ -10,7 +10,7 @@
     @section('content')
     <style>
         .card-custom {
-            background-color: #f8f9fa; /* Adjust this color as needed */
+            background-color: #FFFFFF; /* Adjust this color as needed */
             border-radius: 20px; /* Bordures arrondies */
         }
         .book-cover {
@@ -26,6 +26,17 @@
             background-color: #dc3545;
             color: white;
         }
+        .btn-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        padding: 0;
+}
+
     </style>
 </head>
 <body>
@@ -51,16 +62,16 @@
     <h1 style="text-align: center; padding-top:200px;">Bienvenue à Ma Bibliothèque</h1>
     </div>
     @endsection
-    <h2>Page d'accueil</h2>
-    <p>Bienvenue sur la page d'accueil de notre bibliothèque.</p>
-
+    @auth<a href="/livres/ajouter" class="btn btn-primary btn-circle" style="margin-top: 10px;margin-left:95%;">
+        <i class="fas fa-plus"></i>
+    </a>@endauth
     <div class="container mt-5">
         <div class="row">
             @foreach ($livres as $livre)
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">
                         @if ($livre->image)
-                            <img src="{{ $livre->image}}" alt="" class="card-img-top book-cover" style="border-radius: 20px;">
+                            <img src="{{ $livre->image}}" alt=""  style="border-radius: 20px;" width="100%" height="250px">
                         @else
                             <img src="https://via.placeholder.com/150" alt="No Image" class="card-img-top book-cover">
                         @endif
@@ -74,8 +85,8 @@
                                     <span class="badge badge-unavailable">Non disponible</span>
                                 @endif
                             </p>
-                            <a href="/detail-livre/{{$livre->id}}" class="btn btn-outline-info">
-                                <i class="fas fa-eye"></i>
+                            @auth<a href="/detail-livre/{{$livre->id}}" class="btn btn-outline-info">
+                                <i class="fas fa-eye"></i>@endauth
                             </a>
                         </div>
                     </div>

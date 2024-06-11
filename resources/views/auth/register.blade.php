@@ -45,10 +45,10 @@
                                 <label for="password">Mot de passe:</label>
                                 <input type="text" id="password" name="password" class="form-control">
                             </div>
-                            <div class="form-group">
+                           <!-- <div class="form-group">
                                 <label for="password-confirm">Confirmation de mot de passe:</label>
                                 <input type="text" id="password-confirm" name="password-confirm" class="form-control">
-                            </div>                            
+                            </div>  -->                          
                             <br>
                             <button type="submit" class="btn btn-primary">S'inscrire</button>
                             <br>

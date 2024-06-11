@@ -43,13 +43,19 @@ class LivreController extends Controller
         $livre->categorie_id = $request->categorie_id;
         $livre->rayon_id = $request->rayon_id;
         $livre->save();
-        return redirect('/livres')->with('status', "Le livre a été ajouté avec succés.");
+        /*return redirect('/livres')->with('status', "Le livre a été ajouté avec succés.");*/
+        return redirect('/')->with('status', "Le livre a été ajouté avec succés.");
+
     }
 
-    public function ListeLivre(){
+    /*public function ListeLivre(){
         $livres = Livre::all ();
           return view('livres/liste_liv', compact('livres'));
-    }
+    }*/
+    public function index(){
+        $livres = Livre::with('categorie')->get();
+        return view('livres/index', compact('livres'));
+        }
 
     public function ModifierLivre($id)
     {
@@ -97,10 +103,7 @@ class LivreController extends Controller
         return redirect('/livres')->with('status', "Le livre a été supprimé avec succés.");
     }
 
-    public function index(){
-    $livres = Livre::with('categorie')->get();
-    return view('livres/index', compact('livres'));
-    }
+   
 
     public function DetailLivre($id)
 {

@@ -5,17 +5,19 @@
         </div>
         <ul class="nav-links">
             <li><a style=" font-weight:400;font-size:24px;" href="/">Accueil</a></li>
-            <li><a style=" font-weight:400;font-size:24px;"  href="/categories">Catégories</a></li>
-            <li><a style=" font-weight:400;font-size:24px;"  href="/rayons">Rayons</a></li>
+            @auth<li><a style=" font-weight:400;font-size:24px;"  href="/categories">Catégories</a></li>@endauth
+            @auth<li><a style=" font-weight:400;font-size:24px;"  href="/rayons">Rayons</a></li>@endauth
         </ul>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="/login" class="btn  btn-sm" style=" font-weight:400;font-size:16px;">Se Connecter</a>
-        <a href="#" onclick="document.getElementById('logout-form').submit()" class="btn  btn-sm" style=" font-weight:400;font-size:16px;">
+        @guest<a href="/login" class="btn  btn-sm" style=" font-weight:400;font-size:16px;  background-color:#ffffff;
+        color:#333;">Se Connecter</a>@endguest
+        @auth<a href="#" onclick="document.getElementById('logout-form').submit()" class="btn  btn-sm" style=" font-weight:400;font-size:16px; background-color:#ffffff;
+        color:#333;">
             <form action="/logout" action="post" id="logout-form">@csrf</form>
              Se Déconnecter
-          </a>
+          </a>@endauth
     </div>
 </nav>
 <style>
@@ -58,12 +60,11 @@
     }
 
     .nav-links li a:hover {
-        background-color: #4b97e7;
+        background-color: #007BFF ;
     }
-    .btn{
-        background-color:#ffffff;
-        color:#333;
-    }
+    /*.btn{
+       
+    }*/
     .btn:hover{
         background-color:#4b97e7;
 
