@@ -33,7 +33,7 @@
                             <div class="mb-3">
                                 <div class="d-grid d-inline-flex gap-3">
                                     <button class="btn btn-primary" style=" font-weight:400;font-size:16px;">Se connecter</button>
-                                    <a href="/login" class="btn btn-outline-secondary" style=" font-weight:400;font-size:16px;
+                                    <a href="/register" class="btn btn-outline-secondary" style=" font-weight:400;font-size:16px;
                                     ">S'inscrire</a>
                                 </div>
                             </div> 

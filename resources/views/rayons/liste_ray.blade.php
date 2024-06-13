@@ -69,7 +69,7 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
                                                 @method('DELETE')
-                                                <a href="/supprimer-livre/{{ $rayon->id }}" class="btn btn-sm btn-danger" style="margin-right: 15px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
+                                                <a href="/supprimer-rayon/{{ $rayon->id }}" class="btn btn-sm btn-danger" style="margin-right: 15px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce rayon ?');">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </p>

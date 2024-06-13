@@ -67,6 +67,11 @@
     </a>@endauth
     <div class="container mt-5">
         <div class="row">
+            @if(isset($query))
+                <div class="col-12 mb-3">
+                    <h4>Résultats de recherche pour "{{ $query }}" :</h4>
+                </div>
+            @endif
             @foreach ($livres as $livre)
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">

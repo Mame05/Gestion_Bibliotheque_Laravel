@@ -61,3 +61,12 @@ Route::get('/supprimer-livre/{id}', [LivreController::class, 'SupprimerLivre']);
 /*Connection*/
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'AuthentificationLogin'])->name('login');
+
+
+/*Décinnection*/
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+/*recherche de livre*/
+Route::get('/livres/search', [LivreController::class, 'search'])->name('livres.search');

@@ -69,7 +69,7 @@
                                                 <i class="fas fa-edit"></i>
                                                 </a>
                                                 @method('DELETE')
-                                                <a href="/supprimer-livre/{{ $categorie->id }}" class="btn btn-sm btn-danger" style="margin-right: 10px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce livre ?');">
+                                                <a href="/supprimer-categorie/{{ $categorie->id }}" class="btn btn-sm btn-danger" style="margin-right: 10px" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette categorie ?');">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </p>

@@ -13,12 +13,12 @@
                     <li>
                         <a href="/" class="text-dark">Accueil</a>
                     </li>
-                    <li>
+                    @auth<li>
                         <a href="/categories" class="text-dark">Catégories</a>
-                    </li>
-                    <li>
+                    </li>@endauth
+                    @auth<li>
                         <a href="/rayons" class="text-dark">Rayons</a>
-                    </li>
+                    </li>@endauth
                 </ul>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">

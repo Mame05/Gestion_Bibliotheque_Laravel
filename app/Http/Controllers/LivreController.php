@@ -43,7 +43,6 @@ class LivreController extends Controller
         $livre->categorie_id = $request->categorie_id;
         $livre->rayon_id = $request->rayon_id;
         $livre->save();
-        /*return redirect('/livres')->with('status', "Le livre a été ajouté avec succés.");*/
         return redirect('/')->with('status', "Le livre a été ajouté avec succés.");
 
     }
@@ -89,14 +88,14 @@ class LivreController extends Controller
         $livre->categorie_id = $request->categorie_id;
         $livre->rayon_id = $request->rayon_id;
         $livre->update();
-        return redirect('/livres')->with('status', "Le livre a été modifié avec succés.");
+        return redirect('/')->with('status', "Le livre a été modifié avec succés.");
     }
 
     public function SupprimerLivre($id){
         $livre = Livre::findOrFail($id);
         $livre->delete();
 
-        return redirect('/livres')->with('status', "Le livre a été supprimé avec succés.");
+        return redirect('/')->with('status', "Le livre a été supprimé avec succés.");
     }
 
    
@@ -106,6 +105,18 @@ class LivreController extends Controller
     $livre = Livre::with('categorie', 'rayon')->findOrFail($id);
     return view('livres/detail', compact('livre'));
 }
+ 
+    public function search(Request $request)
+{
+    $query = $request->input('query');
+    $livres = Livre::where('titre', 'like', "%$query%")
+                    ->orWhere('auteur', 'like', "%$query%")
+                    ->orWhereHas('categorie', function($q) use ($query) {
+                        $q->where('libelle', 'like', "%$query%");
+                    })
+                    ->paginate(8);
 
+    return view('livres/index', compact('livres'))->with('query', $query);
+}
 
 }

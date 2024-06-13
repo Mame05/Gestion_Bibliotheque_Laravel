@@ -1,4 +1,4 @@
-<nav>
+<nav class="sticky-top">
     <div class="nav-container">
         <div class="nav-logo">
             <a style="font-weight:700;font-size:30px;" href="/">Ma Bibliothèque</a>
@@ -8,16 +8,19 @@
             @auth<li><a style=" font-weight:400;font-size:24px;"  href="/categories">Catégories</a></li>@endauth
             @auth<li><a style=" font-weight:400;font-size:24px;"  href="/rayons">Rayons</a></li>@endauth
         </ul>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        @guest<a href="/login" class="btn  btn-sm" style=" font-weight:400;font-size:16px;  background-color:#ffffff;
-        color:#333;">Se Connecter</a>@endguest
-        @auth<a href="#" onclick="document.getElementById('logout-form').submit()" class="btn  btn-sm" style=" font-weight:400;font-size:16px; background-color:#ffffff;
-        color:#333;">
+            </button>
+            @guest<a href="/login" class="btn  btn-sm" style=" font-weight:400;font-size:16px;  background-color:#ffffff;
+            color:#333;">Se Connecter</a>@endguest
+            @auth<a href="#" onclick="document.getElementById('logout-form').submit()" class="btn  btn-sm" style=" font-weight:400;font-size:16px; background-color:#ffffff;
+            color:#333;">
             <form action="/logout" action="post" id="logout-form">@csrf</form>
              Se Déconnecter
-          </a>@endauth
+             </a>@endauth
+            <form class="form-inline my-2 my-lg-0 ml-auto" action="{{ route('livres.search') }}" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un livre" aria-label="Rechercher" name="query">
+            </form>
     </div>
 </nav>
 <style>
@@ -61,12 +64,5 @@
 
     .nav-links li a:hover {
         background-color: #007BFF ;
-    }
-    /*.btn{
-       
-    }*/
-    .btn:hover{
-        background-color:#4b97e7;
-
     }
 </style>
